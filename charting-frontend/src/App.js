@@ -67,7 +67,7 @@ class App extends Component{
       loading: true
     });
      let urlEncoded = 'url='+this.state.url+'&fNum='+this.state.firstRace+'&sNum='+this.state.secondRace;
-     fetch('https://doubles-chart.herokuapp.com/chart', {
+     fetch('/api/chart', {
       method: 'POST',
       mode: 'cors', // this cannot be 'no-cors'
       headers: {
