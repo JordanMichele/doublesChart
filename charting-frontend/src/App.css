@@ -1,0 +1,67 @@
+.App {
+  text-align: center;
+}
+
+#name{
+  padding: 10px;
+  margin:10px 0;
+  border-radius:10px;
+  width: 100%;
+}
+
+.horsesAmountInput{
+  padding: 10px;
+  margin:10px 0;
+  border-radius:10px;
+  width: 40%;
+}
+
+
+#outer {
+  width: 364px;
+  margin: 50px auto 15px auto;
+  text-align: center;
+}
+
+.button_slide {
+  width: 100%;
+  color: black;
+  border: 2px solid black;
+  border-radius: 0px;
+  padding: 18px 36px;
+  display: inline-block;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: inset 0 0 0 0 #26c7b1f6;
+  -webkit-transition: ease-out 0.4s;
+  -moz-transition: ease-out 0.4s;
+  transition: ease-out 0.4s;
+}
+
+.slide_left:hover {
+  box-shadow: inset 0 0 0 50px #26c7b1f6;
+}
+
+.comboRow{
+  display: grid;
+  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr; */
+}
+
+.comboBox{
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    font-size: 20px;
+    text-align: center;
+}
+
+.currentRaceCombo{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  margin-top:  35px;
+  width: 70%;
+  text-align: center;
+
+}
+
