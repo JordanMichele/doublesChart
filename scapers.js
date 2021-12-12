@@ -13,21 +13,20 @@ const limiter = rateLimit({
     max: 100
 })
 
-const publicPath = path.join(__dirname, '..', 'public');
-app.use(express.static(publicPath));
-app.get('*', (req, res) => {
-   res.sendFile(path.join(publicPath, 'index.html'));
-});
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(helmet());
 app.use(limiter);
 //app.use(cors());
 
-//app.use(express.static(path.join(__dirname,'./public')));
+app.use(express.static(path.join(__dirname,'./public')));
 
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, './charting-frontend/build')));
+
+// All other GET requests not handled before will return our React app
+app.get('*', (req, res) => {
+    app.use(express.static(path.resolve(__dirname, './charting-frontend/build', 'index.html')));
+});
 
 
 app.post('/chart', async function(req,res){
