@@ -5,7 +5,7 @@ const app = express();
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
-var cors = require('cors');
+//var cors = require('cors');
 const PORT = process.env.PORT || 3001;
 
 const limiter = rateLimit({
@@ -16,7 +16,7 @@ const limiter = rateLimit({
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(helmet());
 app.use(limiter);
-app.use(cors());
+//app.use(cors());
 
 //app.use(express.static(path.join(__dirname,'./public')));
 
