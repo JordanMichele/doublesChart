@@ -29,7 +29,7 @@ app.use(express.static(path.resolve(__dirname, './charting-frontend/build')));
 // });
 
 
-app.post('/chart', async function(req,res){
+app.post('/api/chart', async function(req,res){
     try{
         console.log(req.body);
         let fnum = parseInt(req.body.fNum);
