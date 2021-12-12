@@ -18,7 +18,7 @@ app.use(helmet());
 app.use(limiter);
 //app.use(cors());
 
-app.use(express.static(path.join(__dirname,'./public')));
+//app.use(express.static(path.join(__dirname,'./public')));
 
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, './charting-frontend/build')));
