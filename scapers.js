@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
-const helmet = require('helmet');
+//const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
 //var cors = require('cors');
@@ -14,7 +14,7 @@ const limiter = rateLimit({
 })
 
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(helmet());
+//app.use(helmet());
 app.use(limiter);
 //app.use(cors());
 
