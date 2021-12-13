@@ -238,7 +238,7 @@ render() {
             ))}
         </div>
       </div>
-        
+        <div className="chartContainer">
           {this.state.firstNums.map((n, index) => (
             <ChartRow
               key={index}
@@ -256,6 +256,7 @@ render() {
             />
             
           ))}
+           </div>
         </div>
       
     </div>
