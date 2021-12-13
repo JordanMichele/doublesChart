@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node scapers.js",
-    "dev": "nodemon scapers.js"
+    "dev": "nodemon scapers.js",
+    "heroku-postbuild": "cd ./charting-frontend && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
