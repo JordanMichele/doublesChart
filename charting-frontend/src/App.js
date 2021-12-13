@@ -62,12 +62,12 @@ class App extends Component{
   }
 }
 // Call to Node Server to get numbers
-  callApi = async () => {
+  callApi(){
     this.setState({
       loading: true
     });
      let urlEncoded = 'url='+this.state.url+'&fNum='+this.state.firstRace+'&sNum='+this.state.secondRace;
-     await fetch('/api/chart', {
+     fetch('/api/chart', {
       method: 'POST',
       mode: 'cors', // this cannot be 'no-cors'
       headers: {
@@ -75,13 +75,12 @@ class App extends Component{
       },
       body: urlEncoded
       })
-    .then(async res => { 
-      console.log(res);
+    .then(res => { 
       this.setState({
         loading: false
       });
        try{
-         const data = await res.json();
+         const data = res.json();
          console.log('Response data ?: ' + data);
          return data;
        }catch(error) {
