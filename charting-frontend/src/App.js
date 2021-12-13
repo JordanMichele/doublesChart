@@ -75,11 +75,18 @@ class App extends Component{
       },
       body: urlEncoded
       })
-    .then( res => { 
+    .then(async res => { 
       this.setState({
         loading: false
       });
-      return res.json();
+       try{
+         const data = await res.json();
+         console.log('Response data ?: ' + data);
+       }catch(error) {
+         console.log('Error happened here!')
+         console.error(error)
+       }
+      return data;
     })
     .then(data => {
       let arrData = Object.values(data);
