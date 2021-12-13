@@ -1,4 +1,12 @@
-const puppeteer = require('puppeteer');
+// puppeteer-extra is a drop-in replacement for puppeteer,
+// it augments the installed puppeteer with plugin functionality
+const puppeteer = require('puppeteer-extra');
+
+// add stealth plugin and use defaults (all evasion techniques)
+const StealthPlugin = require('puppeteer-extra-plugin-stealth')
+puppeteer.use(StealthPlugin());
+
+//const puppeteer = require('puppeteer');
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
@@ -99,10 +107,14 @@ async function scrapeProduct(url){
         }
       }
     }
-    browser.close();
-    let jsonRows = JSON.stringify(rows);
-    let newJson = JSON.parse( jsonRows );
-    return newJson;                   
+    if(rows[2].length > 1){
+        browser.close();
+        let jsonRows = JSON.stringify(rows);
+        let newJson = JSON.parse( jsonRows );
+        return newJson;
+    } else{
+        console.log('ERROR');
+    }                 
 }
 // Uncomment the below function call to get the numbers for whatever race you need
 //scrapeProduct('https://www.tvg.com/racetracks/WO/woodbine?race=7');
