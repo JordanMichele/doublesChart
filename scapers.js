@@ -28,6 +28,10 @@ app.use(express.static(path.resolve(__dirname, './charting-frontend/build')));
 //     app.use(express.static(path.resolve(__dirname, './charting-frontend/build', 'index.html')));
 // });
 
+app.get('/testing', (req, res) => {
+    res.send('HELLO WORLD')
+});
+
 
 app.post('/api/chart', async function(req,res){
     try{
