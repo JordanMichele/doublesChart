@@ -82,11 +82,11 @@ class App extends Component{
        try{
          const data = await res.json();
          console.log('Response data ?: ' + data);
+         return data;
        }catch(error) {
          console.log('Error happened here!')
          console.error(error)
        }
-      return data;
     })
     .then(data => {
       let arrData = Object.values(data);
