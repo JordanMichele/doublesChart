@@ -71,9 +71,15 @@ class App extends Component{
       method: 'POST',
       mode: 'cors', // this cannot be 'no-cors'
       headers: {
-         'Content-Type': 'application/x-www-form-urlencoded',
+         //'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
       },
-      body: urlEncoded
+      //body: urlEncoded
+      body: JSON.stringify({
+          url: this.state.url, 
+          fNum: this.state.firstRace,
+          sNum: this.state.secondRace
+        })
       })
     .then(async res => { 
       console.log(res);
