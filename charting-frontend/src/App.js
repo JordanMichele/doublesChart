@@ -62,12 +62,12 @@ class App extends Component{
   }
 }
 // Call to Node Server to get numbers
-  callApi() {
+  callApi = async () => {
     this.setState({
       loading: true
     });
      let urlEncoded = 'url='+this.state.url+'&fNum='+this.state.firstRace+'&sNum='+this.state.secondRace;
-     fetch('https://doubles-chart.herokuapp.com/api/chart', {
+     await fetch('/api/chart', {
       method: 'POST',
       mode: 'cors', // this cannot be 'no-cors'
       headers: {
