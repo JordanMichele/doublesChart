@@ -40,6 +40,7 @@ app.post('/api/chart', async function(req,res){
         res.json(numbers);
 
     } catch(e){
+        console.log("ERRORRRR, Inside server Post method");
         console.log(e);
     }
     
