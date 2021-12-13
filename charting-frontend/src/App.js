@@ -66,20 +66,14 @@ class App extends Component{
     this.setState({
       loading: true
     });
-     //let urlEncoded = 'url='+this.state.url+'&fNum='+this.state.firstRace+'&sNum='+this.state.secondRace;
+     let urlEncoded = 'url='+this.state.url+'&fNum='+this.state.firstRace+'&sNum='+this.state.secondRace;
      await fetch('/api/chart', {
       method: 'POST',
       mode: 'cors', // this cannot be 'no-cors'
       headers: {
-         //'Content-Type': 'application/x-www-form-urlencoded',
-        'Content-Type': 'application/json',
+         'Content-Type': 'application/x-www-form-urlencoded',
       },
-      //body: urlEncoded
-      body: JSON.stringify({
-          url: this.state.url, 
-          fNum: this.state.firstRace,
-          sNum: this.state.secondRace
-        })
+      body: urlEncoded
       })
     .then(async res => { 
       console.log(res);
