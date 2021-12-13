@@ -66,7 +66,7 @@ class App extends Component{
     this.setState({
       loading: true
     });
-     let urlEncoded = 'url='+this.state.url+'&fNum='+this.state.firstRace+'&sNum='+this.state.secondRace;
+     //let urlEncoded = 'url='+this.state.url+'&fNum='+this.state.firstRace+'&sNum='+this.state.secondRace;
      await fetch('/api/chart', {
       method: 'POST',
       mode: 'cors', // this cannot be 'no-cors'
