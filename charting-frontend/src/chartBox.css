@@ -16,7 +16,7 @@
 }
 
 .numbers15 {
-    font-size: 18px;
+    font-size: 13px;
 }
 
 .numbers15-border{
@@ -25,162 +25,162 @@
   
   
   .numbers10 {
-    font-size: 18px;
+    font-size: 13px;
   }
   
   .numbers10Hit {
     font-weight: bold;
     color: white;
-    font-size: 18px;
+    font-size: 13px;
     background-color: rgb(58, 126, 58);
     border-radius:10px;
-    width: 30%;
+    width: 50%;
     margin: auto;
     text-align: center;
   }
   .numbers10BigHit {
     font-weight: bold;
     color: white;
-    font-size: 18px;
+    font-size: 13px;
     background-color: rgb(172, 24, 162);
     border-radius:10px;
-    width: 30%;
+    width: 50%;
     margin: auto;
     text-align: center;
   }
   
   .numbers5 {
-    font-size: 18px;
+    font-size: 13px;
   }
   
   .numbers5Hit {
     font-weight: bold;
     color: white;
-    font-size: 18px;
+    font-size: 13px;
     background-color: rgb(58, 126, 58);
     border-radius:10px;
-    width: 30%;
+    width: 50%;
     margin: auto;
     text-align: center;
   }
   .numbers5BigHit {
     font-weight: bold;
     color: white;
-    font-size: 18px;
+    font-size: 13px;
     background-color: rgb(172, 24, 162);
     border-radius:10px;
-    width: 30%;
+    width: 50%;
     margin: auto;
     text-align: center;
   }
   
   .numbers2 {
-    font-size: 18px;
+    font-size: 13px;
   }
   
   .numbers2Hit {
     font-weight: bold;
     color: white;
-    font-size: 18px;
+    font-size: 13px;
     background-color: rgb(58, 126, 58);
     border-radius:10px;
-    width: 30%;
+    width: 50%;
     margin: auto;
     text-align: center;
   }
   .numbers2BigHit {
     font-weight: bold;
     color: white;
-    font-size: 18px;
+    font-size: 13px;
     background-color: rgb(172, 24, 162);
     border-radius:10px;
-    width: 30%;
+    width: 50%;
     margin: auto;
     text-align: center;
   }
   
   .numbersPost {
-    font-size: 18px;
+    font-size: 13px;
   }
   
   .numbersPostHit {
     font-weight: bold;
     color: white;
-    font-size: 18px;
+    font-size: 13px;
     background-color: rgb(58, 126, 58);
     border-radius:10px;
-    width: 30%;
+    width: 50%;
     margin: auto;
     text-align: center;
   }
   .numbersPostBigHit {
     font-weight: bold;
     color: white;
-    font-size: 18px;
+    font-size: 13px;
     background-color: rgb(172, 24, 162);
     border-radius:10px;
-    width: 30%;
+    width: 50%;
     margin: auto;
     text-align: center;
   }
   .numbersSix {
-    font-size: 18px;
+    font-size: 13px;
   }
   
   .numbersSixHit {
     font-weight: bold;
     color: white;
-    font-size: 18px;
+    font-size: 13px;
     background-color: rgb(58, 126, 58);
     border-radius:10px;
-    width: 30%;
+    width: 50%;
     margin: auto;
     text-align: center;
   }
   .numbersSixBigHit {
     font-weight: bold;
     color: white;
-    font-size: 18px;
+    font-size: 13px;
     background-color: rgb(172, 24, 162);
     border-radius:10px;
-    width: 30%;
+    width: 50%;
     margin: auto;
     text-align: center;
   }
 
   .numbersSeven {
-    font-size: 18px;
+    font-size: 13px;
   }
   
   .numbersSevenHit {
     font-weight: bold;
     color: white;
-    font-size: 18px;
+    font-size: 13px;
     background-color: rgb(58, 126, 58);
     border-radius:10px;
-    width: 30%;
+    width: 50%;
     margin: auto;
     text-align: center;
   }
   .numbersSevenBigHit {
     font-weight: bold;
     color: white;
-    font-size: 18px;
+    font-size: 13px;
     background-color: rgb(172, 24, 162);
     border-radius:10px;
-    width: 30%;
+    width: 50%;
     margin: auto;
     text-align: center;
   }
 
   .perChange {
     text-align: left;
-    font-size: 12px;
+    font-size: 13px;
     list-style-type: none;
   }
   .perChangeHit {
     text-align: left;
-    font-size: 12px;
+    font-size: 13px;
     list-style-type: none;
     background-color: rgb(244, 155, 22);
   }
