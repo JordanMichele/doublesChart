@@ -76,6 +76,7 @@ class App extends Component{
       body: urlEncoded
       })
     .then(async res => { 
+      console.log(res);
       this.setState({
         loading: false
       });
