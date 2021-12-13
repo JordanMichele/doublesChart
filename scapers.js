@@ -21,17 +21,12 @@ app.use(cors());
 app.use(express.static(path.join(__dirname,'./charting-frontend/build')));
 
 // Have Node serve the files for our built React app
-app.use(express.static(path.resolve(__dirname, './charting-frontend/build')));
+//app.use(express.static(path.resolve(__dirname, './charting-frontend/build')));
 
 // All other GET requests not handled before will return our React app
 // app.get('*', (req, res) => {
 //     app.use(express.static(path.resolve(__dirname, './charting-frontend/build', 'index.html')));
 // });
-
-
-app.get('/testing', (req, res) => {
-    res.send('HELLO WORLD')
-});
 
 
 app.post('/api/chart', async function(req,res){
