@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname,'./charting-frontend/build')));
 
 // All other GET requests not handled before will return our React app
 app.get('*', (request, response) => {
-	response.sendFile(path.join(__dirname, './charting-frontend/build', 'index.html'));
+	response.sendFile(path.join(__dirname, './charting-frontend/build'));
 });
 
 
