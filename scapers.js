@@ -45,8 +45,8 @@ app.post('/api/chart', async function(req,res){
         numberOfHorses = fnum + 1;
         let snum = parseInt(req.body.sNum);
         numberOfHorsesNext = snum + 2;
-        let numbers = await scrapeProduct(req.body.url);
-        res.json(numbers);
+
+	res.json(await scrapeProduct(req.body.url));
 
     } catch(e){
         console.log("ERRORRRR, Inside server Post method");
@@ -114,6 +114,7 @@ async function scrapeProduct(url){
         return newJson;
     } else{
         console.log('ERROR');
+	return -1;
     }                 
 }
 // Uncomment the below function call to get the numbers for whatever race you need
