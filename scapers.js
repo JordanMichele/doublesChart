@@ -91,19 +91,21 @@ async function scrapeProduct(url){
     for(let i = 1; i < numberOfHorsesNext; i++){
         for(let j = 1; j < numberOfHorses; j++){ 
         try{
-            if(i === 1){
+            if(i < 2){
                 const [el] = await page.$x(`//*[@id="maincontainer"]/section/ng-view/raceprogram/div/div[2]/main/div[3]/div/probables/div[3]/div/div[${i}]/span[${j}]/span/span`);
                 const txt =  await el.getProperty('textContent');
                 const rawTxt = await txt.jsonValue();
                 rows[i].push(rawTxt);
-            } else if(i > 1){          
-            const [el] = await page.$x(`//*[@id="maincontainer"]/section/ng-view/raceprogram/div/div[2]/main/div[3]/div/probables/div[3]/div/div[${i}]/span[${j}]/span`);
-            const txt =  await el.getProperty('textContent');
-            const rawTxt = await txt.jsonValue();
-            rows[i].push(rawTxt);
+            }
+	    if(i > 1){          
+	        const [el] = await page.$x(`//*[@id="maincontainer"]/section/ng-view/raceprogram/div/div[2]/main/div[3]/div/probables/div[3]/div/div[${i}]/span[${j}]/span`);
+	        const txt =  await el.getProperty('textContent');
+	        const rawTxt = await txt.jsonValue();
+       	        rows[i].push(rawTxt);
             }
         }catch(e){
             console.log(e);
+	    return -1
         }
       }
     }
