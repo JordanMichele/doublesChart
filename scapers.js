@@ -37,15 +37,17 @@ app.get('*', (request, response) => {
 	response.sendFile(path.join(__dirname, './charting-frontend/build'));
 });
 
+const URL;
 
 app.post('/api/chart', async function(req,res){
     try{
+	URL = req.body.url;
         console.log(req.body);
         let fnum = parseInt(req.body.fNum);
         numberOfHorses = fnum + 1;
         let snum = parseInt(req.body.sNum);
         numberOfHorsesNext = snum + 2;
-
+	
 	res.json(await scrapeProduct(req.body.url));
 
     } catch(e){
@@ -105,7 +107,7 @@ async function scrapeProduct(url){
             }
         }catch(e){
             console.log(e);
-	    return -1
+	    return;
         }
       }
     }
@@ -116,9 +118,10 @@ async function scrapeProduct(url){
         return newJson;
     } else{
         console.log('ERROR');
-	return -1;
+	return;
     }                 
 }
+
 // Uncomment the below function call to get the numbers for whatever race you need
 //scrapeProduct('https://www.tvg.com/racetracks/WO/woodbine?race=7');
 
