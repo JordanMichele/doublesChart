@@ -16,14 +16,14 @@ const path = require('path');
 var cors = require('cors');
 const PORT = process.env.PORT || 3001;
 
-const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000,
-    max: 100
-})
+// const limiter = rateLimit({
+//     windowMs: 15 * 60 * 1000,
+//     max: 100
+// })
 
 app.use(bodyParser.urlencoded({extended: true}));
 //app.use(helmet());
-app.use(limiter);
+//app.use(limiter);
 app.use(cors());
 
 
