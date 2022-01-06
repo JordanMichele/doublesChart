@@ -1,17 +1,3 @@
-const throng = require('throng');
-const WORKERS = process.env.WEB_CONCURRENCY || 1;
-
-throng({
-  workers: WORKERS,
-  lifetime: Infinity
-}, start)
-
-function start() {
-
-  app
-    .post('/api/chart', chart)
-    .listen(PORT, onListen)
-	
 // puppeteer-extra is a drop-in replacement for puppeteer,
 // it augments the installed puppeteer with plugin functionality
 const puppeteer = require('puppeteer-extra');
@@ -28,12 +14,8 @@ const path = require('path');
 var cors = require('cors');
 const PORT = process.env.PORT || 3001;
 
-
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
-
-
 
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, './charting-frontend/build')));
@@ -43,6 +25,20 @@ app.get('*', (request, response) => {
 	response.sendFile(path.join(__dirname, './charting-frontend/build'));
 });
 
+const throng = require('throng');
+const WORKERS = process.env.WEB_CONCURRENCY || 1;
+
+throng({
+  workers: WORKERS,
+  lifetime: Infinity
+}, start);
+
+function start() {
+
+  app
+    .post('/api/chart', chart)
+    .listen(PORT, onListen)
+	
 // app.post('/api/chart', async function(req,res){
 //     try{
 //         console.log(req.body);
@@ -83,6 +79,7 @@ let numberOfHorses;
 let numberOfHorsesNext;
 
 async function scrapeProduct(url){
+  try{
     const rows = {
         1 :  [],
         2 :  [],
@@ -137,7 +134,10 @@ async function scrapeProduct(url){
     } else{
         console.log('ERROR');
 	return;
-    }                 
+    } } catch(e){	
+            console.log(e);
+	    return;
+   }          
 }
 
 
