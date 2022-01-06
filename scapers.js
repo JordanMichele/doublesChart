@@ -1,3 +1,17 @@
+const throng = require('throng');
+const WORKERS = process.env.WEB_CONCURRENCY || 1;
+
+throng({
+  workers: WORKERS,
+  lifetime: Infinity
+}, start)
+
+function start() {
+
+  app
+    .post('/api/chart', chart)
+    .listen(PORT, onListen)
+	
 // puppeteer-extra is a drop-in replacement for puppeteer,
 // it augments the installed puppeteer with plugin functionality
 const puppeteer = require('puppeteer-extra');
@@ -6,28 +20,20 @@ const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth')
 puppeteer.use(StealthPlugin());
 
-//const puppeteer = require('puppeteer');
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
-//const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
 var cors = require('cors');
 const PORT = process.env.PORT || 3001;
 
-// const limiter = rateLimit({
-//     windowMs: 15 * 60 * 1000,
-//     max: 100
-// })
+
 
 app.use(bodyParser.urlencoded({extended: true}));
-//app.use(helmet());
-//app.use(limiter);
 app.use(cors());
 
 
-//app.use(express.static(path.join(__dirname,'./charting-frontend/build')));
 
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, './charting-frontend/build')));
@@ -37,7 +43,23 @@ app.get('*', (request, response) => {
 	response.sendFile(path.join(__dirname, './charting-frontend/build'));
 });
 
-app.post('/api/chart', async function(req,res){
+// app.post('/api/chart', async function(req,res){
+//     try{
+//         console.log(req.body);
+//         let fnum = parseInt(req.body.fNum);
+//         numberOfHorses = fnum + 1;
+//         let snum = parseInt(req.body.sNum);
+//         numberOfHorsesNext = snum + 2;
+	
+// 	res.json(await scrapeProduct(req.body.url));
+
+//     } catch(e){
+//         console.log("ERRORRRR, Inside server Post method");
+//         console.log(e);
+//     } 
+// });
+	
+async function chart(req,res){
     try{
         console.log(req.body);
         let fnum = parseInt(req.body.fNum);
@@ -50,9 +72,7 @@ app.post('/api/chart', async function(req,res){
     } catch(e){
         console.log("ERRORRRR, Inside server Post method");
         console.log(e);
-    }
-    
-    
+    } 
 });
 
 // Need to plug in 1 more than the actual
@@ -121,6 +141,11 @@ async function scrapeProduct(url){
 }
 
 
-app.listen(PORT, () => {
-    console.log(`ON PORT ${PORT}`);
-})
+// app.listen(PORT, () => {
+//     console.log(`ON PORT ${PORT}`);
+// })
+  function onListen() {
+    console.log('Listening on', PORT);
+  }
+	
+}
