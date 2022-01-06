@@ -73,7 +73,7 @@ async function chart(req,res){
         console.log("ERRORRRR, Inside server Post method");
         console.log(e);
     } 
-});
+};
 
 // Need to plug in 1 more than the actual
 //const numberOfHorses = 7;
