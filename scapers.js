@@ -25,35 +25,23 @@ app.get('*', (request, response) => {
 	response.sendFile(path.join(__dirname, './charting-frontend/build'));
 });
 
-const throng = require('throng');
-const WORKERS = process.env.WEB_CONCURRENCY || 1;
 
-throng({
-  workers: WORKERS,
-  lifetime: Infinity
-}, start);
-
-function start() {
-
-  app
-    .post('/api/chart', chart)
-    .listen(PORT, onListen)
 	
-// app.post('/api/chart', async function(req,res){
-//     try{
-//         console.log(req.body);
-//         let fnum = parseInt(req.body.fNum);
-//         numberOfHorses = fnum + 1;
-//         let snum = parseInt(req.body.sNum);
-//         numberOfHorsesNext = snum + 2;
+app.post('/api/chart', async function(req,res){
+    try{
+        console.log(req.body);
+        let fnum = parseInt(req.body.fNum);
+        numberOfHorses = fnum + 1;
+        let snum = parseInt(req.body.sNum);
+        numberOfHorsesNext = snum + 2;
 	
-// 	res.json(await scrapeProduct(req.body.url));
+	res.json(await scrapeProduct(req.body.url));
 
-//     } catch(e){
-//         console.log("ERRORRRR, Inside server Post method");
-//         console.log(e);
-//     } 
-// });
+    } catch(e){
+        console.log("ERRORRRR, Inside server Post method");
+        console.log(e);
+    } 
+});
 	
 async function chart(req,res){
     try{
@@ -72,14 +60,11 @@ async function chart(req,res){
 };
 
 // Need to plug in 1 more than the actual
-//const numberOfHorses = 7;
 let numberOfHorses;
 // Need to plug in 2 more than the actual
-//const numberOfHorsesNext = 8;
 let numberOfHorsesNext;
 
 async function scrapeProduct(url){
-  try{
     const rows = {
         1 :  [],
         2 :  [],
@@ -120,6 +105,7 @@ async function scrapeProduct(url){
        	        rows[i].push(rawTxt);
             }
         }catch(e){
+	    browser.close();
 	    console.log("ERROR INSIDE SCRAPE FUNCTION");	
             console.log(e);
 	    return;
@@ -132,20 +118,15 @@ async function scrapeProduct(url){
         let newJson = JSON.parse( jsonRows );
         return newJson;
     } else{
+	browser.close();
         console.log('ERROR');
 	return;
-    } } catch(e){	
-            console.log(e);
-	    return;
-   }          
+    }          
 }
 
 
-// app.listen(PORT, () => {
-//     console.log(`ON PORT ${PORT}`);
-// })
-  function onListen() {
-    console.log('Listening on', PORT);
-  }
+app.listen(PORT, () => {
+    console.log(`ON PORT ${PORT}`);
+})
+
 	
-}
