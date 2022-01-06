@@ -6,16 +6,28 @@ const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth')
 puppeteer.use(StealthPlugin());
 
+//const puppeteer = require('puppeteer');
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
+//const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
 var cors = require('cors');
 const PORT = process.env.PORT || 3001;
 
+// const limiter = rateLimit({
+//     windowMs: 15 * 60 * 1000,
+//     max: 100
+// })
+
 app.use(bodyParser.urlencoded({extended: true}));
+//app.use(helmet());
+//app.use(limiter);
 app.use(cors());
+
+
+//app.use(express.static(path.join(__dirname,'./charting-frontend/build')));
 
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, './charting-frontend/build')));
@@ -25,8 +37,6 @@ app.get('*', (request, response) => {
 	response.sendFile(path.join(__dirname, './charting-frontend/build'));
 });
 
-
-	
 app.post('/api/chart', async function(req,res){
     try{
         console.log(req.body);
@@ -40,28 +50,16 @@ app.post('/api/chart', async function(req,res){
     } catch(e){
         console.log("ERRORRRR, Inside server Post method");
         console.log(e);
-    } 
+    }
+    
+    
 });
-	
-async function chart(req,res){
-    try{
-        console.log(req.body);
-        let fnum = parseInt(req.body.fNum);
-        numberOfHorses = fnum + 1;
-        let snum = parseInt(req.body.sNum);
-        numberOfHorsesNext = snum + 2;
-	
-	res.json(await scrapeProduct(req.body.url));
-
-    } catch(e){
-        console.log("ERRORRRR, Inside server Post method");
-        console.log(e);
-    } 
-};
 
 // Need to plug in 1 more than the actual
+//const numberOfHorses = 7;
 let numberOfHorses;
 // Need to plug in 2 more than the actual
+//const numberOfHorsesNext = 8;
 let numberOfHorsesNext;
 
 async function scrapeProduct(url){
@@ -121,12 +119,10 @@ async function scrapeProduct(url){
 	browser.close();
         console.log('ERROR');
 	return;
-    }          
+    }                 
 }
 
 
 app.listen(PORT, () => {
     console.log(`ON PORT ${PORT}`);
 })
-
-	
