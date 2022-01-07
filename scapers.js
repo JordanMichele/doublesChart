@@ -110,10 +110,17 @@ async function scrapeProduct(url){
         }
       }
     }
-        browser.close();
-        let jsonRows = JSON.stringify(rows);
-        let newJson = JSON.parse( jsonRows );
-        return newJson;
+	try{	
+	 browser.close();
+	 let jsonRows = JSON.stringify(rows);
+       	 let newJson = JSON.parse( jsonRows );
+	 return newJson;
+	}catch(e){
+	    browser.close();
+	    console.log("ERROR INSIDE SCRAPE FUNCTION OUTSIDE LOOP");	
+            console.log(e);
+	    return;
+        }
                
 }
 
