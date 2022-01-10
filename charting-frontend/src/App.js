@@ -231,7 +231,7 @@ render() {
         <h1>Current Race Combo Sheet</h1>
         <div className="comboRow" style={{ gridTemplateColumns: this.state.cssCol }}>
           {this.state.horseNumbers.map((n, index) => (
-              <div className="comboBox">
+             <div className={isNaN(this.state.colNumObj[index]) === false && this.state.colNumObj[index] > 0 ? 'comboBoxHit' : 'comboBox'}>
                 <p>{this.state.horseNumbers[index]}</p>
                 <p >{isNaN(this.state.colNumObj[index]) === true ? 0 : Math.round(this.state.colNumObj[index] * 100) / 100}</p>
               </div>
