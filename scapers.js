@@ -1,29 +1,22 @@
 // puppeteer-extra is a drop-in replacement for puppeteer,
 // it augments the installed puppeteer with plugin functionality
-const puppeteer = require('puppeteer-extra');
+//const puppeteer = require('puppeteer-extra');
 
 // add stealth plugin and use defaults (all evasion techniques)
-const StealthPlugin = require('puppeteer-extra-plugin-stealth')
-puppeteer.use(StealthPlugin());
+//const StealthPlugin = require('puppeteer-extra-plugin-stealth')
+//puppeteer.use(StealthPlugin());
 
-//const puppeteer = require('puppeteer');
+const puppeteer = require('puppeteer');
 const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
-//const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
 var cors = require('cors');
 const PORT = process.env.PORT || 3001;
 
-// const limiter = rateLimit({
-//     windowMs: 15 * 60 * 1000,
-//     max: 100
-// })
 
 app.use(bodyParser.urlencoded({extended: true}));
-//app.use(helmet());
-//app.use(limiter);
 app.use(cors());
 
 
@@ -56,10 +49,8 @@ app.post('/api/chart', async function(req,res){
 });
 
 // Need to plug in 1 more than the actual
-//const numberOfHorses = 7;
 let numberOfHorses;
 // Need to plug in 2 more than the actual
-//const numberOfHorsesNext = 8;
 let numberOfHorsesNext;
 
 async function scrapeProduct(url){
@@ -83,9 +74,12 @@ async function scrapeProduct(url){
         17 : []
     };
 
-    const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
+    const browser = await puppeteer.launch({ args: ['--no-sandbox'], headless: false });
     const page = await browser.newPage();
-    await page.goto(url);
+    await page.goto(url, {
+        waitUntil: 'load',
+        timeout: 0
+    });
 
     for(let i = 1; i < numberOfHorsesNext; i++){
         for(let j = 1; j < numberOfHorses; j++){ 
