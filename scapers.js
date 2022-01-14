@@ -74,7 +74,7 @@ async function scrapeProduct(url){
         17 : []
     };
 
-    const browser = await puppeteer.launch({ args: ['--no-sandbox'], headless: false });
+    const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
     const page = await browser.newPage();
     await page.goto(url, {
         waitUntil: 'load',
