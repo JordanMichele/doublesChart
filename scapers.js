@@ -3,7 +3,7 @@
 const puppeteer = require('puppeteer-extra');
 
 // add stealth plugin and use defaults (all evasion techniques)
-//const StealthPlugin = require('puppeteer-extra-plugin-stealth')
+const StealthPlugin = require('puppeteer-extra-plugin-stealth')
 puppeteer.use(StealthPlugin());
 
 //const puppeteer = require('puppeteer');
@@ -74,7 +74,7 @@ async function scrapeProduct(url){
         17 : []
     };
 
-    const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
+    const browser = await puppeteer.launch({ args: ['--no-sandbox'], headless: true });
     const page = await browser.newPage();
     await page.goto(url, {
         waitUntil: 'load',
