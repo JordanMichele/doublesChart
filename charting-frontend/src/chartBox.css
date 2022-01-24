@@ -17,6 +17,7 @@
 
 .numbers15 {
     font-size: 13px;
+    margin-bottom: 5px;
 }
 
 .numbers15-border{
@@ -26,6 +27,7 @@
   
   .numbers10 {
     font-size: 13px;
+    margin-bottom: 5px;
   }
   
   .numbers10Hit {
@@ -37,6 +39,7 @@
     width: 70%;
     margin: auto;
     text-align: center;
+    margin-bottom: 5px;
   }
   .numbers10BigHit {
     font-weight: bold;
@@ -47,10 +50,12 @@
     width: 70%;
     margin: auto;
     text-align: center;
+    margin-bottom: 5px;
   }
   
   .numbers5 {
     font-size: 13px;
+    margin-bottom: 5px;
   }
   
   .numbers5Hit {
@@ -62,6 +67,7 @@
     width: 70%;
     margin: auto;
     text-align: center;
+    margin-bottom: 5px;
   }
   .numbers5BigHit {
     font-weight: bold;
@@ -72,10 +78,12 @@
     width: 70%;
     margin: auto;
     text-align: center;
+    margin-bottom: 5px;
   }
   
   .numbers2 {
     font-size: 13px;
+    margin-bottom: 5px;
   }
   
   .numbers2Hit {
@@ -87,6 +95,7 @@
     width: 70%;
     margin: auto;
     text-align: center;
+    margin-bottom: 5px;
   }
   .numbers2BigHit {
     font-weight: bold;
@@ -97,10 +106,12 @@
     width: 70%;
     margin: auto;
     text-align: center;
+    margin-bottom: 5px;
   }
   
   .numbersPost {
     font-size: 13px;
+    margin-bottom: 5px;
   }
   
   .numbersPostHit {
@@ -112,6 +123,7 @@
     width: 70%;
     margin: auto;
     text-align: center;
+    margin-bottom: 5px;
   }
   .numbersPostBigHit {
     font-weight: bold;
@@ -122,9 +134,11 @@
     width: 70%;
     margin: auto;
     text-align: center;
+    margin-bottom: 5px;
   }
   .numbersSix {
     font-size: 13px;
+    margin-bottom: 5px;
   }
   
   .numbersSixHit {
@@ -136,6 +150,7 @@
     width: 70%;
     margin: auto;
     text-align: center;
+    margin-bottom: 5px;
   }
   .numbersSixBigHit {
     font-weight: bold;
@@ -146,10 +161,12 @@
     width: 70%;
     margin: auto;
     text-align: center;
+    margin-bottom: 5px;
   }
 
   .numbersSeven {
     font-size: 13px;
+    margin-bottom: 5px;
   }
   
   .numbersSevenHit {
@@ -161,6 +178,7 @@
     width: 70%;
     margin: auto;
     text-align: center;
+    margin-bottom: 5px;
   }
   .numbersSevenBigHit {
     font-weight: bold;
@@ -171,6 +189,7 @@
     width: 70%;
     margin: auto;
     text-align: center;
+    margin-bottom: 5px;
   }
 
   .perChange {
