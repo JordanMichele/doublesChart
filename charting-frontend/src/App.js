@@ -97,35 +97,40 @@ class App extends Component{
           nums.push(element);
         }
       }
-    
-     if(this.state.firstNums.length === 0){
-      this.setState({ firstNums : nums});
-     }else if(this.state.secondNums.length === 0){
-      this.setState({ secondNums : nums});
-      this.comboSheetCols(this.state.firstNums, this.state.secondNums, 0.1);
-     }else if(this.state.thirdNums.length === 0){
-      this.setState({ thirdNums : nums});
-      this.comboSheetCols(this.state.secondNums, this.state.thirdNums, 0.1);
-     }else if(this.state.fourthNums.length === 0){
-      this.setState({ fourthNums : nums});
-      this.comboSheetCols(this.state.thirdNums, this.state.fourthNums, 0.15);
-     }else if(this.state.fifthNums.length === 0){
-      this.setState({ fifthNums : nums});
-      this.comboSheetCols(this.state.fourthNums, this.state.fifthNums, 0.15);
-     }else if(this.state.sixthNums.length === 0){
-      this.setState({ sixthNums : nums});
-      this.comboSheetCols(this.state.fifthNums, this.state.sixthNums, 0.2);
-     }else if(this.state.seventhNums.length === 0){
-      this.setState({ seventhNums : nums});
-      this.comboSheetCols(this.state.sixthNums, this.state.seventhNums, 0.2);
-     }else if(this.state.eighthNums.length === 0){
-      this.setState({ eighthNums : nums});
-     }else{
-      this.setState({ eighthNums : nums});
-     }
+     if(nums.length <= 0){
+        this.callApi();
+     }else{  
+   
+       if(this.state.firstNums.length === 0){
+        this.setState({ firstNums : nums});
+       }else if(this.state.secondNums.length === 0){
+        this.setState({ secondNums : nums});
+        this.comboSheetCols(this.state.firstNums, this.state.secondNums, 0.1);
+       }else if(this.state.thirdNums.length === 0){
+        this.setState({ thirdNums : nums});
+        this.comboSheetCols(this.state.secondNums, this.state.thirdNums, 0.1);
+       }else if(this.state.fourthNums.length === 0){
+        this.setState({ fourthNums : nums});
+        this.comboSheetCols(this.state.thirdNums, this.state.fourthNums, 0.15);
+       }else if(this.state.fifthNums.length === 0){
+        this.setState({ fifthNums : nums});
+        this.comboSheetCols(this.state.fourthNums, this.state.fifthNums, 0.15);
+       }else if(this.state.sixthNums.length === 0){
+        this.setState({ sixthNums : nums});
+        this.comboSheetCols(this.state.fifthNums, this.state.sixthNums, 0.2);
+       }else if(this.state.seventhNums.length === 0){
+        this.setState({ seventhNums : nums});
+        this.comboSheetCols(this.state.sixthNums, this.state.seventhNums, 0.2);
+       }else if(this.state.eighthNums.length === 0){
+        this.setState({ eighthNums : nums});
+       }else{
+        this.setState({ eighthNums : nums});
+       }
 
-     if(this.state.horseNumbers.length === 0){
-      this.setState({ horseNumbers : this.state.firstNums[0]});
+       if(this.state.horseNumbers.length === 0){
+        this.setState({ horseNumbers : this.state.firstNums[0]});
+       }
+       
      }
 
     })
