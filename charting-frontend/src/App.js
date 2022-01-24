@@ -134,7 +134,7 @@ class App extends Component{
      }
 
     })
-    .catch(err => console.log('INSIDE Fetch Method REACT ERROR: ' + err)) 
+    .catch(err => console.log('INSIDE Fetch Method REACT ERROR: ' + err + ' Calling API AGAIN') +  this.callApi()) 
 }
 // Percent Change Helpers
 percentChange(oldNum, newNum) {
