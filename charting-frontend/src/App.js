@@ -76,7 +76,6 @@ class App extends Component{
       body: urlEncoded
       })
     .then(res => { 
-      console.log(res);
       this.setState({
         loading: false
       });
@@ -98,6 +97,7 @@ class App extends Component{
         }
       }
      if(nums.length <= 0){
+        console.log("Calling API AGAIN");
         this.callApi();
      }else{  
    
