@@ -227,7 +227,7 @@ render() {
           <input type="text" className="horsesAmountInput" id="secondRace" onChange={this.changeText} />
         </div>
         <br></br>
-        {this.state.loading === true ? (<Spinner animation="border" variant="primary" /> ) : <button className="button_slide slide_left" onClick={this.callApi}>Call API</button>}
+        {this.state.loading === true ? (<Spinner animation="border" variant="primary" /> ) : <button className="button_slide slide_left" onClick={this.callApi}>SMACK IT!!</button>}
 
       </div>
       <div >
