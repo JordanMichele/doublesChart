@@ -1,26 +1,34 @@
 // puppeteer-extra is a drop-in replacement for puppeteer,
 // it augments the installed puppeteer with plugin functionality
-const puppeteer = require('puppeteer-extra');
-
+const puppeteer     = require('puppeteer-extra');
 // add stealth plugin and use defaults (all evasion techniques)
 const StealthPlugin = require('puppeteer-extra-plugin-stealth')
-puppeteer.use(StealthPlugin());
+const bodyParser    = require('body-parser');
+const express       = require('express');
+const rateLimit     = require('express-rate-limit');
+const path          = require('path');
+const cors          = require('cors');
+const PORT          = process.env.PORT || 3001;
 
-//const puppeteer = require('puppeteer');
-const bodyParser = require('body-parser');
-const express = require('express');
+if (cluster.isMaster) {
+    console.log(`Number of CPUs is ${totalCPUs}`);
+    console.log(`Master ${process.pid} is running`);
+    // Fork workers.
+for (let i = 0; i < totalCPUs; i++) {
+    cluster.fork();
+}
+      
+cluster.on("exit", (worker, code, signal) => {
+    console.log(`worker ${worker.process.pid} died`);
+    console.log("Let's fork another worker!");
+    cluster.fork();
+    });
+} else { 
+
 const app = express();
-const rateLimit = require('express-rate-limit');
-const path = require('path');
-var cors = require('cors');
-const PORT = process.env.PORT || 3001;
-
-
+puppeteer.use(StealthPlugin());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(cors());
-
-
-//app.use(express.static(path.join(__dirname,'./charting-frontend/build')));
 
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, './charting-frontend/build')));
@@ -120,4 +128,6 @@ async function scrapeProduct(url){
 
 app.listen(PORT, () => {
     console.log(`ON PORT ${PORT}`);
-})
+});
+	
+}
