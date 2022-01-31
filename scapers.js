@@ -9,6 +9,8 @@ const rateLimit     = require('express-rate-limit');
 const path          = require('path');
 const cors          = require('cors');
 const PORT          = process.env.PORT || 3001;
+const cluster       = require("cluster");
+const totalCPUs     = require("os").cpus().length;
 
 if (cluster.isMaster) {
     console.log(`Number of CPUs is ${totalCPUs}`);
