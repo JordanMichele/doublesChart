@@ -56,7 +56,7 @@ app.post('/api/chart1', async function(req,res){
         console.log(e);
     } 
 });
-app.post('/chart2', async function(req,res){
+app.post('/api/chart2', async function(req,res){
     try{
         console.log('/chart2');
         console.log(req.body);
@@ -70,7 +70,7 @@ app.post('/chart2', async function(req,res){
         console.log(e);
     }    
 });
-app.post('/chart3', async function(req,res){
+app.post('/api/chart3', async function(req,res){
     try{
         console.log('/chart3');
         console.log(req.body);
@@ -84,7 +84,7 @@ app.post('/chart3', async function(req,res){
         console.log(e);
     }    
 });
-app.post('/chart4', async function(req,res){
+app.post('/api/chart4', async function(req,res){
     try{
         console.log('/chart4');
         console.log(req.body);
@@ -98,7 +98,7 @@ app.post('/chart4', async function(req,res){
         console.log(e);
     }    
 });
-app.post('/chart5', async function(req,res){
+app.post('/api/chart5', async function(req,res){
     try{
         console.log('/chart5');
         console.log(req.body);
@@ -112,7 +112,7 @@ app.post('/chart5', async function(req,res){
         console.log(e);
     }    
 });
-app.post('/chart6', async function(req,res){
+app.post('/api/chart6', async function(req,res){
     try{
         console.log('/chart6');
         console.log(req.body);
@@ -126,7 +126,7 @@ app.post('/chart6', async function(req,res){
         console.log(e);
     }    
 });
-app.post('/chart7', async function(req,res){
+app.post('/api/chart7', async function(req,res){
     try{
         console.log('/chart7');
         console.log(req.body);
@@ -140,7 +140,7 @@ app.post('/chart7', async function(req,res){
         console.log(e);
     }    
 });
-app.post('/chart8', async function(req,res){
+app.post('/api/chart8', async function(req,res){
     try{
         console.log('/chart8');
         console.log(req.body);
@@ -154,7 +154,7 @@ app.post('/chart8', async function(req,res){
         console.log(e);
     }    
 });
-app.post('/chart9', async function(req,res){
+app.post('/api/chart9', async function(req,res){
     try{
         console.log('/chart9');
         console.log(req.body);
@@ -168,7 +168,7 @@ app.post('/chart9', async function(req,res){
         console.log(e);
     }    
 });
-app.post('/chart10', async function(req,res){
+app.post('/api/chart10', async function(req,res){
     try{
         console.log('/chart10');
         console.log(req.body);
