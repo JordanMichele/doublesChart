@@ -140,7 +140,12 @@ class App extends Component{
      }
 
     })
-    .catch(err => console.log('INSIDE Fetch Method REACT ERROR: ' + err )) 
+    .catch(err => (console.log('INSIDE Fetch Method REACT ERROR: ' + err )        
+          if(this.state.autoRetry <= 0){
+            console.log("AUTO RETRY, Calling API AGAIN");
+            this.callApi();
+            this.setState({ autoRetry : 1});
+        })) 
 }
 // Percent Change Helpers
 percentChange(oldNum, newNum) {
