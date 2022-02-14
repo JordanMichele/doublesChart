@@ -8,6 +8,7 @@ class App extends Component{
   constructor(props) {
     super(props);
     this.state = {
+      autoRetry: 0,
       url: "",
       loading: undefined,
       firstRace: "",
@@ -66,8 +67,9 @@ class App extends Component{
     this.setState({
       loading: true
     });
+     let num = Math.floor(Math.random() * 10) + 1;
      let urlEncoded = 'url='+this.state.url+'&fNum='+this.state.firstRace+'&sNum='+this.state.secondRace;
-     fetch('/api/chart', {
+     fetch('/api/chart'+num, {
       method: 'POST',
       mode: 'cors', // this cannot be 'no-cors'
       headers: {
@@ -97,10 +99,12 @@ class App extends Component{
         }
       }
      if(nums.length <= 0){
-        console.log("Calling API AGAIN");
-        this.callApi();
+        if(this.state.autoRetry <= 0){
+          console.log("Calling API AGAIN");
+          this.callApi();
+          this.setState({ autoRetry : 1});
+        }
      }else{  
-   
        if(this.state.firstNums.length === 0){
         this.setState({ firstNums : nums});
        }else if(this.state.secondNums.length === 0){
