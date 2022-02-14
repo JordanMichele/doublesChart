@@ -40,8 +40,9 @@ app.get('*', (request, response) => {
 	response.sendFile(path.join(__dirname, './charting-frontend/build'));
 });
 
-app.post('/api/chart', async function(req,res){
+app.post('/api/chart1', async function(req,res){
     try{
+	console.log('/chart1');
         console.log(req.body);
         let fnum = parseInt(req.body.fNum);
         numberOfHorses = fnum + 1;
@@ -53,9 +54,133 @@ app.post('/api/chart', async function(req,res){
     } catch(e){
         console.log("ERRORRRR, Inside server Post method");
         console.log(e);
-    }
-    
-    
+    } 
+});
+app.post('/chart2', async function(req,res){
+    try{
+        console.log('/chart2');
+        console.log(req.body);
+        let fnum = parseInt(req.body.fNum);
+        numberOfHorses = fnum + 1;
+        let snum = parseInt(req.body.sNum);
+        numberOfHorsesNext = snum + 2;
+        res.json(await scrapeProduct(req.body.url));
+
+    } catch(e){
+        console.log(e);
+    }    
+});
+app.post('/chart3', async function(req,res){
+    try{
+        console.log('/chart3');
+        console.log(req.body);
+        let fnum = parseInt(req.body.fNum);
+        numberOfHorses = fnum + 1;
+        let snum = parseInt(req.body.sNum);
+        numberOfHorsesNext = snum + 2;
+        res.json(await scrapeProduct(req.body.url));
+
+    } catch(e){
+        console.log(e);
+    }    
+});
+app.post('/chart4', async function(req,res){
+    try{
+        console.log('/chart4');
+        console.log(req.body);
+        let fnum = parseInt(req.body.fNum);
+        numberOfHorses = fnum + 1;
+        let snum = parseInt(req.body.sNum);
+        numberOfHorsesNext = snum + 2;
+        res.json(await scrapeProduct(req.body.url));
+
+    } catch(e){
+        console.log(e);
+    }    
+});
+app.post('/chart5', async function(req,res){
+    try{
+        console.log('/chart5');
+        console.log(req.body);
+        let fnum = parseInt(req.body.fNum);
+        numberOfHorses = fnum + 1;
+        let snum = parseInt(req.body.sNum);
+        numberOfHorsesNext = snum + 2;
+        res.json(await scrapeProduct(req.body.url));
+
+    } catch(e){
+        console.log(e);
+    }    
+});
+app.post('/chart6', async function(req,res){
+    try{
+        console.log('/chart6');
+        console.log(req.body);
+        let fnum = parseInt(req.body.fNum);
+        numberOfHorses = fnum + 1;
+        let snum = parseInt(req.body.sNum);
+        numberOfHorsesNext = snum + 2;
+        res.json(await scrapeProduct(req.body.url));
+
+    } catch(e){
+        console.log(e);
+    }    
+});
+app.post('/chart7', async function(req,res){
+    try{
+        console.log('/chart7');
+        console.log(req.body);
+        let fnum = parseInt(req.body.fNum);
+        numberOfHorses = fnum + 1;
+        let snum = parseInt(req.body.sNum);
+        numberOfHorsesNext = snum + 2;
+        res.json(await scrapeProduct(req.body.url));
+
+    } catch(e){
+        console.log(e);
+    }    
+});
+app.post('/chart8', async function(req,res){
+    try{
+        console.log('/chart8');
+        console.log(req.body);
+        let fnum = parseInt(req.body.fNum);
+        numberOfHorses = fnum + 1;
+        let snum = parseInt(req.body.sNum);
+        numberOfHorsesNext = snum + 2;
+        res.json(await scrapeProduct(req.body.url));
+
+    } catch(e){
+        console.log(e);
+    }    
+});
+app.post('/chart9', async function(req,res){
+    try{
+        console.log('/chart9');
+        console.log(req.body);
+        let fnum = parseInt(req.body.fNum);
+        numberOfHorses = fnum + 1;
+        let snum = parseInt(req.body.sNum);
+        numberOfHorsesNext = snum + 2;
+        res.json(await scrapeProduct(req.body.url));
+
+    } catch(e){
+        console.log(e);
+    }    
+});
+app.post('/chart10', async function(req,res){
+    try{
+        console.log('/chart10');
+        console.log(req.body);
+        let fnum = parseInt(req.body.fNum);
+        numberOfHorses = fnum + 1;
+        let snum = parseInt(req.body.sNum);
+        numberOfHorsesNext = snum + 2;
+        res.json(await scrapeProduct(req.body.url));
+
+    } catch(e){
+        console.log(e);
+    }    
 });
 
 // Need to plug in 1 more than the actual
