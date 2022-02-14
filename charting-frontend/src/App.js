@@ -68,9 +68,10 @@ class App extends Component{
       loading: true
     });
      let endpointNumber = Math.floor(Math.random() * 10) + 1;
+     let endpointNumberText = endpointNumber.toString();
      console.log('ENDPOINT NUM: ' + endpointNumber);
      let urlEncoded = 'url='+this.state.url+'&fNum='+this.state.firstRace+'&sNum='+this.state.secondRace;
-     fetch('/api/chart' + endpointNumber, {
+     fetch(`/api/chart${endpointNumberText}`, {
       method: 'POST',
       mode: 'cors', // this cannot be 'no-cors'
       headers: {
