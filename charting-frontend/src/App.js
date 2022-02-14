@@ -142,7 +142,7 @@ class App extends Component{
      }
 
     })
-    .catch(err => console.log('INSIDE Fetch Method REACT ERROR: ' + err) this.autoRetry()) 
+    .catch(err => console.log('INSIDE Fetch Method REACT ERROR: ' + err) + this.autoRetry()) 
 }
 
 // Auto Retry
