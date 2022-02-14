@@ -101,10 +101,10 @@ class App extends Component{
         }
       }
      if(nums.length <= 0){
-        if(this.state.autoRetry <= 0){
+        if(this.state.autoRetry <= 3){
           console.log("AUTO RETRY, Calling API AGAIN");
           this.callApi();
-          this.setState({ autoRetry : 1});
+          this.setState({ autoRetry: this.state.autoRetry + 1 });
         }
      }else{  
        if(this.state.firstNums.length === 0){
@@ -135,13 +135,15 @@ class App extends Component{
 
        if(this.state.horseNumbers.length === 0){
         this.setState({ horseNumbers : this.state.firstNums[0]});
+        //Reset the auto retry counter
+        this.setState({ autoRetry: 0 });
        }
        
      }
 
     })
     .catch(err => (console.log('INSIDE Fetch Method REACT ERROR: ' + err )        
-          if(this.state.autoRetry <= 0){
+          if(this.state.autoRetry <= 3){
             console.log("AUTO RETRY, Calling API AGAIN");
             this.callApi();
             this.setState({ autoRetry : 1});
