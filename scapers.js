@@ -209,7 +209,7 @@ async function scrapeProduct(url){
         17 : []
     };
 
-    const browser = await puppeteer.launch({ args: ['--no-sandbox'], headless: true });
+    const browser = await puppeteer.launch({ args: ['--no-sandbox'], headless: false });
     const page = await browser.newPage();
     await page.goto(url, {
         waitUntil: 'load',
