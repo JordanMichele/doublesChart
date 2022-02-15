@@ -9,23 +9,7 @@ const rateLimit     = require('express-rate-limit');
 const path          = require('path');
 const cors          = require('cors');
 const PORT          = process.env.PORT || 3001;
-// const cluster       = require("cluster");
-// const totalCPUs     = require("os").cpus().length;
 
-// if (cluster.isMaster) {
-//     console.log(`Number of CPUs is ${totalCPUs}`);
-//     console.log(`Master ${process.pid} is running`);
-//     // Fork workers.
-// for (let i = 0; i < totalCPUs; i++) {
-//     cluster.fork();
-// }
-      
-// cluster.on("exit", (worker, code, signal) => {
-//     console.log(`worker ${worker.process.pid} died`);
-//     console.log("Let's fork another worker!");
-//     cluster.fork();
-//     });
-// } else { 
 
 const app = express();
 puppeteer.use(StealthPlugin());
@@ -208,7 +192,7 @@ async function scrapeProduct(url){
         16 : [],
         17 : []
     };
-    const browser = await puppeteer.launch({ args: ['--no-sandbox', headless: false ] });
+    const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox' ], headless: false });
     const page = await browser.newPage();
     await page.goto(url, {
         waitUntil: 'load',
@@ -256,4 +240,3 @@ app.listen(PORT, () => {
     console.log(`ON PORT ${PORT}`);
 });
 	
-// }
