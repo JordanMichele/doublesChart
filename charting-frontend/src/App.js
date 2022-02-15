@@ -135,8 +135,6 @@ class App extends Component{
 
        if(this.state.horseNumbers.length === 0){
         this.setState({ horseNumbers : this.state.firstNums[0]});
-        //Reset the auto retry counter
-        this.setState({ autoRetry: 0 });
        }
        
      }
@@ -169,6 +167,9 @@ percentChangeInc(newNum, oldNum) {
 }
 // Combo sheet
 comboSheetCols(arr1, arr2, deci){
+  //Reset the auto retry counter
+  this.setState({ autoRetry: 0 });
+  
   if(arr1.length > 0 && arr2.length > 0){
     let colNumObj = {};
     for(let i = 0; i < arr1.length; i++){
