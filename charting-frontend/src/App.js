@@ -253,7 +253,7 @@ render() {
       <div >
       
       <div className="currentRaceCombo">
-        <h1>Current Race Combo Sheet</h1>
+        <h1>{this.state.horseNumbers[0] !== undefined ? 'Current Race Combo Sheet' : ''}</h1>
         <div className="comboRow" style={{ gridTemplateColumns: this.state.cssCol }}>
           {this.state.horseNumbers.map((n, index) => (
              <div className={isNaN(this.state.colNumObj[index]) === false && this.state.colNumObj[index] > 0 ? 'comboBoxHit' : 'comboBox'}>
