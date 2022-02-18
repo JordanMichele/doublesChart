@@ -25,6 +25,7 @@ class App extends Component{
       eighthNums: [],
       colNumObj: {}
     };
+    this.autoRetry = this.autoRetry.bind(this);
     this.callApi = this.callApi.bind(this);
     this.changeText = this.changeText.bind(this);
     this.changeCss = this.changeCss.bind(this);
