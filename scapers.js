@@ -190,7 +190,15 @@ async function scrapeProduct(url){
         14:  [],
         15 : [],
         16 : [],
-        17 : []
+        17 : [],
+	18: [],
+	19: [],
+	20: [],
+	21: [],
+	22: [],
+	23: [],
+	24: [],
+	25: []
     };
     const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox' ] });
     const page = await browser.newPage();
